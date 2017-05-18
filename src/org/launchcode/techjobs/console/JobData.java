@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -125,4 +126,49 @@ public class JobData {
         }
     }
 
-}
+
+    public static  ArrayList<HashMap<String, String>> findByValue(String term) {
+
+        // load data, if not already loaded
+        loadData();
+
+        // initialize return arraylist
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        // loop through each row  of job_data.csv and see if term is there
+        for (HashMap<String, String> entry: allJobs ) {
+
+            Boolean heyIAlreadyFoundIt = false;
+
+            for (String key : entry.keySet()){
+
+                String searchThis = entry.get(key);
+
+                if (searchThis.toLowerCase().contains(term.toLowerCase()) ) {
+
+                    if (heyIAlreadyFoundIt.equals(false)) {
+                        jobs.add(entry);
+                        heyIAlreadyFoundIt = true;
+
+                    }
+
+                }
+
+
+
+            }
+
+
+
+
+
+        }
+
+        return jobs;
+    }
+
+
+
+    }
+
+
