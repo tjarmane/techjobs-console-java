@@ -121,7 +121,7 @@ public class TechJobs {
         if (allJobsSize.equals(0)){
 
             System.out.println("");
-            System.out.println("No results");
+            System.out.println("No results, sucka");
 
         }
 
